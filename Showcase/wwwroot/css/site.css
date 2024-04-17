@@ -3,24 +3,44 @@
 @tailwind utilities;
 
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    @apply h-dvh overflow-auto m-0;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
-  margin-bottom: 60px;
+    @apply h-full;
+}
+
+.nav-links li {
+    @apply mb-3;
+}
+
+.nav-links li a {
+    @apply text-lg;
+}
+
+@layer base {
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    h4 {
+        @apply text-lg;
+    }
+
+    h5 {
+        @apply text-sm;
+    }
+
+    p {
+        @apply text-base;
+    }
 }
