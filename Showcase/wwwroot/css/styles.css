@@ -644,21 +644,25 @@ select {
 h1 {
   font-size: 1.875rem;
   line-height: 2.25rem;
+  font-weight: 300;
 }
 
 h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 400;
 }
 
 h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
 }
 
 h4 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.75rem;
+  font-weight: 500;
 }
 
 h5 {
@@ -837,8 +841,12 @@ p {
   position: relative;
 }
 
-.bottom-0 {
-  bottom: 0px;
+.m-\[-dvh\] {
+  margin: -dvh;
+}
+
+.m-\[-100dvh\] {
+  margin: -100dvh;
 }
 
 .mx-10 {
@@ -895,6 +903,14 @@ p {
   display: none;
 }
 
+.h-dvh {
+  height: 100dvh;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -925,6 +941,11 @@ p {
   border-width: 1px;
 }
 
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
@@ -934,9 +955,42 @@ p {
   padding: 1rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .text-center {
@@ -992,7 +1046,7 @@ body {
 }
 
 .nav-links li {
-  margin-bottom: 0.75rem;
+  padding: 0.75rem;
 }
 
 .nav-links li a {
@@ -1001,6 +1055,23 @@ body {
 }
 
 @media (min-width: 768px) {
+  .md\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .md\:ml-56 {
+    margin-left: 14rem;
+  }
+
+  .md\:w-56 {
+    width: 14rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
+  }
+
   .md\:text-left {
     text-align: left;
   }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Showcase</title>
+    <title>@ViewData["Title"] - Showcase Ronan van der Vlies</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="w-full bg-slate-300">
+        <nav class="w-full bg-slate-300 md:w-56 m-[-100dvh] h-dvh fixed">
             <div class="text-center md:text-left py-2">
                 <h2 class="my-4">
                     <a asp-area="" asp-controller="Home" asp-action="Index">[icon]</a>
@@ -34,15 +34,15 @@
         </nav>
     </header>
 
-    <div class="mx-10">
-        <main role="main" class="">
+    <div>
+        <main role="main" class="md:ml-56">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="w-full bg-slate-300 absolute bottom-0">
+    <footer class="w-full bg-slate-300">
         <div class="box-border p-4 text-center">
-            &copy; 2024 / Showcase / <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> / <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
