@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    @apply h-dvh overflow-auto m-0;
+    @apply h-dvh overflow-auto m-0 text-gray-800;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -19,23 +19,31 @@ body {
     @apply text-lg;
 }
 
+p.quote-gray {
+    @apply text-sm text-gray-500;
+}
+
+p.quote-green {
+    @apply text-sm font-semibold text-red-700;
+}
+
 @layer base {
     h1 {
-        @apply text-3xl font-light;
+        @apply text-3xl font-light py-2;
     }
     h2 {
-        @apply text-3xl font-normal;
+        @apply text-3xl font-normal py-2 text-red-700;
     }
     h3 {
-        @apply text-2xl font-medium;
+        @apply text-2xl font-semibold pt-1.5;
     }
     h4 {
-        @apply text-xl font-medium;
+        @apply text-xl font-medium pt-1.5;
     }
     h5 {
-        @apply text-sm;
+        @apply text-sm pt-1;
     }
     p {
-        @apply text-base;
+        @apply text-base pb-1;
     }
 }

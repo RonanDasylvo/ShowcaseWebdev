@@ -642,35 +642,45 @@ select {
 }
 
 h1 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 300;
 }
 
 h2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
 h3 {
+  padding-top: 0.375rem;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h4 {
+  padding-top: 0.375rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 500;
 }
 
 h5 {
+  padding-top: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 p {
+  padding-bottom: 0.25rem;
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -841,17 +851,16 @@ p {
   position: relative;
 }
 
-.m-\[-dvh\] {
-  margin: -dvh;
+.right-0 {
+  right: 0px;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .m-\[-100dvh\] {
   margin: -100dvh;
-}
-
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }
 
 .my-4 {
@@ -903,16 +912,28 @@ p {
   display: none;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
 .h-dvh {
   height: 100dvh;
 }
 
-.h-12 {
-  height: 3rem;
+.w-2\/4 {
+  width: 50%;
+}
+
+.w-9 {
+  width: 2.25rem;
 }
 
 .w-full {
   width: 100%;
+}
+
+.max-w-48 {
+  max-width: 12rem;
 }
 
 .resize {
@@ -937,6 +958,10 @@ p {
   border-radius: 0.25rem;
 }
 
+.rounded-\[50\%\] {
+  border-radius: 50%;
+}
+
 .border {
   border-width: 1px;
 }
@@ -955,12 +980,14 @@ p {
   padding: 1rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-2 {
@@ -968,29 +995,9 @@ p {
   padding-bottom: 0.5rem;
 }
 
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.py-14 {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
 }
 
 .text-center {
@@ -1038,6 +1045,8 @@ html {
   margin: 0px;
   height: 100dvh;
   overflow: auto;
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
   font-family: 'Raleway', sans-serif;
 }
 
@@ -1054,22 +1063,28 @@ body {
   line-height: 1.75rem;
 }
 
-@media (min-width: 768px) {
-  .md\:mx-0 {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+p.quote-gray {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
 
+p.quote-green {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
   .md\:ml-56 {
     margin-left: 14rem;
   }
 
   .md\:w-56 {
     width: 14rem;
-  }
-
-  .md\:p-4 {
-    padding: 1rem;
   }
 
   .md\:text-left {
