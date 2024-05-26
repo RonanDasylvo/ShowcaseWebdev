@@ -928,12 +928,8 @@ p {
   height: 100dvh;
 }
 
-.h-\[calc\(100dvh-\)\] {
-  height: calc(100dvh - );
-}
-
-.h-\[calc\(100dvh-56px\)\] {
-  height: calc(100dvh - 56px);
+.h-8 {
+  height: 2rem;
 }
 
 .min-h-\[calc\(100dvh-56px\)\] {
@@ -950,6 +946,10 @@ p {
 
 .w-full {
   width: 100%;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .max-w-48 {
@@ -994,6 +994,11 @@ p {
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .p-4 {
@@ -1076,6 +1081,14 @@ html {
 
 body {
   height: 100%;
+}
+
+.content {
+  box-sizing: border-box;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .nav-links li {

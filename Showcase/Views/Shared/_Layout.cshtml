@@ -7,15 +7,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap">
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
+    <link rel="icon" href="./favicon.png" type="image/x-icon"/>
 </head>
 <body>
 <header>
     <a href="javascript:void(0)" class="z-50 fixed p-4 top-0 left-0 md:hidden" onclick="toggleNav()">
-        <img class="h-9 w-9" src="/img/svg/bars-solid.svg" alt="bars-svg">
+        <img class="h-8 w-8" src="/img/svg/bars-solid.svg" alt="bars-svg">
     </a>
-    <nav class="w-full bg-slate-300 z-10 md:w-56 h-dvh fixed mt-[-100dvh] md:mt-0 [&.open]:mt-0 duration-200">
+    <nav class="w-full bg-slate-100 z-10 md:w-56 h-dvh fixed mt-[-100dvh] md:mt-0 [&.open]:mt-0 duration-200">
         <div class="text-center md:text-left py-2">
             <h2 class="flex flex-col items-center my-4">
                 <a asp-area="" asp-controller="Home" asp-action="Index">
@@ -45,9 +46,11 @@
     </main>
 </div>
 
-<footer class="w-full bg-slate-300">
+<footer class="md:ml-56 bg-slate-200">
     <div class="box-border p-4 text-center">
-        &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> / <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> / 
+        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a> /
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
