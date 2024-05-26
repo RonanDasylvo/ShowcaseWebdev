@@ -1,52 +1,57 @@
 ﻿<!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Showcase Ronan van der Vlies</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
 </head>
 <body>
-    <header>
-        <nav class="w-full bg-slate-300 md:w-56 m-[-100dvh] h-dvh fixed">
-            <div class="text-center md:text-left py-2">
-                <h2 class="my-4">
-                    <a asp-area="" asp-controller="Home" asp-action="Index">[icon]</a>
-                </h2>
-                <div class="nav-links">
-                    <ul>
-                        <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+<header>
+    <a href="javascript:void(0)" class="z-50 fixed p-4 top-0 left-0 md:hidden" onclick="toggleNav()">
+        <img class="h-9 w-9" src="/img/svg/bars-solid.svg" alt="bars-svg">
+    </a>
+    <nav class="w-full bg-slate-300 z-10 md:w-56 h-dvh fixed mt-[-100dvh] md:mt-0 [&.open]:mt-0 duration-200">
+        <div class="text-center md:text-left py-2">
+            <h2 class="flex flex-col items-center my-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="h-9 w-9" src="/img/svg/house-solid.svg" alt="house-svg">
+                </a>
+            </h2>
+            <div class="nav-links">
+                <ul>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
-
-    <div>
-        <main role="main" class="md:ml-56">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="w-full bg-slate-300">
-        <div class="box-border p-4 text-center">
-            &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> / <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    </nav>
+</header>
+
+<div>
+    <main role="main" class="md:ml-56">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="w-full bg-slate-300">
+    <div class="box-border p-4 text-center">
+        &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> / <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

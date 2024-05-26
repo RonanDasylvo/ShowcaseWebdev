@@ -31,18 +31,23 @@ p.quote-green {
     h1 {
         @apply text-3xl font-light py-2;
     }
+
     h2 {
         @apply text-3xl font-normal py-2 text-red-700;
     }
+
     h3 {
         @apply text-2xl font-semibold pt-1.5;
     }
+
     h4 {
         @apply text-xl font-medium pt-1.5;
     }
+
     h5 {
         @apply text-sm pt-1;
     }
+
     p {
         @apply text-base pb-1;
     }
