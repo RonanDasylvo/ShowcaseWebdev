@@ -2,17 +2,20 @@
     ViewData["Title"] = "Contact";
 }
 
-<div class="content">
+<div class="content h-full border-box px-8 flex flex-col items-center">
 
-    <section>
+    <section class="p-12 text-center">
         <h1>Neem contact op!</h1>
         <p>
             Als je contact met mij wilt opnemen kan je dat doen door dit formulier in te vullen en te verzenden.
         </p>
     </section>
 
-    <section>
-        <form class="" action="" method="post">
+    <section class="flex flex-col w-4/5 md:max-w-[800px]">
+        <form
+            class="form flex flex-col [&>label]:my-1 [&>input]:h-8 [&>textarea]:h-40 [&>textarea]:resize-none"
+            action=""
+            method="post">
 
             <label for="name">Naam</label>
             <input id="name" name="name" type="text" required>
@@ -21,18 +24,17 @@
             <input id="email" name="email" type="email" required>
 
             <label for="phone">Telefoonnummer</label>
-            <input id="phone" name="phone" type="text" required>
+            <input id="phone" name="phone" type="text" pattern="06[0-9]{8}" required>
 
             <label for="subject">Onderwerp</label>
-            <input id="subject" name="subject" type="text" required>
+            <input id="subject" name="subject" type="text" maxlength="200" required>
 
             <label for="contents">Inhoud</label>
-            <textarea id="contents" name="contents" type="text" required></textarea>
+            <textarea id="contents" class="" name="contents" type="text" maxlength="600" required></textarea>
 
         </form>
 
-        <button class="btn-send">Verzend</button>
+        <button class="self-center btn bg-green-400 hover:bg-green-500">Verzend</button>
     </section>
-
-
+    
 </div>

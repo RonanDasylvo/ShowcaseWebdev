@@ -9,14 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap">
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
-    <link rel="icon" href="./favicon.png" type="image/x-icon"/>
+    <link rel="icon" href="/favicon.png" type="image/x-icon"/>
 </head>
-<body>
+<body class="h-full">
 <header>
     <a href="javascript:void(0)" class="z-50 fixed p-4 top-0 left-0 md:hidden" onclick="toggleNav()">
         <img class="h-8 w-8" src="/img/svg/bars-solid.svg" alt="bars-svg">
     </a>
-    <nav class="w-full bg-slate-100 z-10 md:w-56 h-dvh fixed -mt-[100dvh] md:mt-0 [&.open]:mt-0 duration-200">
+    <nav class="w-full bg-stone-800 z-10 md:w-56 h-dvh fixed -mt-[100dvh] md:mt-0 [&.open]:mt-0 duration-200">
         <div class="text-center md:text-left py-2">
             <h2 class="flex flex-col items-center my-4">
                 <a asp-area="" asp-controller="Home" asp-action="Index">
@@ -24,7 +24,7 @@
                 </a>
             </h2>
             <div class="nav-links">
-                <ul>
+                <ul class="[&>li]:p-3">
                     <li>
                         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
@@ -55,8 +55,8 @@
         </div>
 
         <div class="w-full flex flex-row justify-evenly">
-            <button class="gdpr-consent__button--reject btn-choice bg-red-400 hover:bg-red-500">Reject cookies</button>
-            <button class="gdpr-consent__button--accept btn-choice bg-green-400 hover:bg-green-500">Accept all cookies</button>
+            <button class="gdpr-consent__button--reject btn bg-red-400 hover:bg-red-500">Reject cookies</button>
+            <button class="gdpr-consent__button--accept btn bg-green-400 hover:bg-green-500">Accept all cookies</button>
         </div>
     </section>
 </div>

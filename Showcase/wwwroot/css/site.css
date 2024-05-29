@@ -7,24 +7,20 @@ html {
     font-family: 'Raleway', sans-serif;
 }
 
-body {
-    @apply h-full;
-}
-
 .content {
     @apply box-border py-4 px-5;
 }
 
-.btn-choice {
+.btn {
     @apply border border-slate-200 p-2 duration-150 rounded-md;
 }
 
-.nav-links li {
-    @apply p-3;
+.nav-links li a {
+    @apply text-lg text-white;
 }
 
-.nav-links li a {
-    @apply text-lg;
+.form input, .form textarea {
+    @apply rounded-md mb-5 outline-none bg-gray-50 border-slate-300 border;
 }
 
 p.quote-gray {
