@@ -16,7 +16,7 @@
     <a href="javascript:void(0)" class="z-50 fixed p-4 top-0 left-0 md:hidden" onclick="toggleNav()">
         <img class="h-8 w-8" src="/img/svg/bars-solid.svg" alt="bars-svg">
     </a>
-    <nav class="w-full bg-slate-100 z-10 md:w-56 h-dvh fixed mt-[-100dvh] md:mt-0 [&.open]:mt-0 duration-200">
+    <nav class="w-full bg-slate-100 z-10 md:w-56 h-dvh fixed -mt-[100dvh] md:mt-0 [&.open]:mt-0 duration-200">
         <div class="text-center md:text-left py-2">
             <h2 class="flex flex-col items-center my-4">
                 <a asp-area="" asp-controller="Home" asp-action="Index">
@@ -44,17 +44,33 @@
     <main role="main" class="md:ml-56 min-h-[calc(100dvh-56px)]">
         @RenderBody()
     </main>
+
+    <section class="gdpr-consent z-50 bottom-0 inset-x-0 fixed hide [&.hide]:hidden [&.show]:flex flex-col items-center m-2 p-4 bg-white border border-slate-200 rounded-md">
+        <div class="flex justify-center">
+            <p>
+                Deze website gebruikt cookies.
+                We gebruiken cookies om content te personaliseren, voor social media en het analyseren
+                van verkeer op de website, advertenties.
+            </p>
+        </div>
+
+        <div class="w-full flex flex-row justify-evenly">
+            <button class="gdpr-consent__button--reject btn-choice bg-red-400 hover:bg-red-500">Reject cookies</button>
+            <button class="gdpr-consent__button--accept btn-choice bg-green-400 hover:bg-green-500">Accept all cookies</button>
+        </div>
+    </section>
 </div>
 
 <footer class="md:ml-56 bg-slate-200">
     <div class="box-border p-4 text-center">
-        &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> / 
+        &copy; 2024 / <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> /
         <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a> /
         <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/gdpr.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

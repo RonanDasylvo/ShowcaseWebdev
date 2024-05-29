@@ -15,6 +15,10 @@ body {
     @apply box-border py-4 px-5;
 }
 
+.btn-choice {
+    @apply border border-slate-200 p-2 duration-150 rounded-md;
+}
+
 .nav-links li {
     @apply p-3;
 }
