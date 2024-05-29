@@ -16,7 +16,7 @@ html {
 }
 
 .nav-links li a {
-    @apply text-lg text-white;
+    @apply text-xl text-white w-full;
 }
 
 .form input, .form textarea {
