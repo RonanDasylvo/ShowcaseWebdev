@@ -1,4 +1,4 @@
-namespace Showcase.Api.Models.Models;
+namespace Showcase.Api.Models;
 
 public class MailDataModel
 {

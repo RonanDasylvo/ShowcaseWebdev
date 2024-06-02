@@ -1,73 +1,49 @@
 ﻿<!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Showcase Ronan van der Vlies</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap">
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
-    <link rel="icon" href="/favicon.png" type="image/x-icon"/>
+    <title>@ViewData["Title"] - Showcase</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Showcase.styles.css" asp-append-version="true"/>
 </head>
-<body class="h-full">
+<body>
 <header>
-    <a href="javascript:void(0)" class="z-50 fixed p-4 top-0 left-0 md:hidden" onclick="toggleNav()">
-        <img class="h-8 w-8" src="/img/svg/bars-solid.svg" alt="bars-svg">
-    </a>
-    <nav class="w-full bg-stone-800 z-10 md:w-56 h-dvh fixed -mt-[100dvh] md:mt-0 [&.open]:mt-0 duration-200">
-        <div class="text-center md:text-left py-2">
-            <h2 class="flex flex-col items-center my-4">
-                <a asp-area="" asp-controller="Home" asp-action="Index">
-                    <img class="h-9 w-9" src="/img/svg/house-solid.svg" alt="house-svg">
-                </a>
-            </h2>
-            <div class="nav-links">
-                <ul class="[&>li]:py-2 [&>li]:px-6">
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Showcase</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-
-<div>
-    <main role="main" class="md:ml-56 min-h-[calc(100dvh-56px)]">
+<div class="container">
+    <main role="main" class="pb-3">
         @RenderBody()
     </main>
-
-    <section class="gdpr-consent z-50 bottom-0 inset-x-0 fixed hide [&.hide]:hidden [&.show]:flex flex-col items-center m-2 p-4 bg-white border border-slate-200 rounded-md">
-        <div class="flex justify-center">
-            <p>
-                Deze website gebruikt cookies.
-                We gebruiken cookies om content te personaliseren, voor social media en het analyseren
-                van verkeer op de website, advertenties.
-            </p>
-        </div>
-
-        <div class="w-full flex flex-row justify-evenly">
-            <button class="gdpr-consent__button--reject btn bg-red-400 hover:bg-red-500">Reject cookies</button>
-            <button class="gdpr-consent__button--accept btn bg-green-400 hover:bg-green-500">Accept all cookies</button>
-        </div>
-    </section>
 </div>
 
-<footer class="md:ml-56 bg-slate-200">
-    <div class="box-border p-4 text-center">
-        &copy; 2024 / 
-        <a asp-area="" asp-controller="Home" asp-action="Index">Showcase</a> /
-        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2024 - Showcase - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/gdpr.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

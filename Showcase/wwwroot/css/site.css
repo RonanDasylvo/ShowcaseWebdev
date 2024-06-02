@@ -1,58 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
 
 html {
-    @apply h-dvh overflow-auto m-0 text-gray-800;
-    font-family: 'Raleway', sans-serif;
+  position: relative;
+  min-height: 100%;
 }
 
-.content {
-    @apply box-border py-4 px-5;
-}
-
-.btn {
-    @apply border border-slate-200 p-2 duration-150 rounded-md;
-}
-
-.nav-links li a {
-    @apply text-xl text-white w-full;
-}
-
-.form input, .form textarea {
-    @apply rounded-md mb-5 outline-none bg-gray-50 border-slate-300 border;
-}
-
-p.quote-gray {
-    @apply text-sm text-gray-500;
-}
-
-p.quote-green {
-    @apply text-sm font-semibold text-red-700;
-}
-
-@layer base {
-    h1 {
-        @apply text-3xl font-light py-2;
-    }
-
-    h2 {
-        @apply text-3xl font-normal py-2 text-red-700;
-    }
-
-    h3 {
-        @apply text-2xl font-semibold pt-1.5;
-    }
-
-    h4 {
-        @apply text-xl font-medium pt-1.5;
-    }
-
-    h5 {
-        @apply text-sm pt-1;
-    }
-
-    p {
-        @apply text-base pb-1;
-    }
+body {
+  margin-bottom: 60px;
 }

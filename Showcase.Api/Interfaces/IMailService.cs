@@ -1,4 +1,4 @@
-using Showcase.Api.Models.Models;
+using Showcase.Api.Models;
 
 namespace Showcase.Api.Interfaces;
 

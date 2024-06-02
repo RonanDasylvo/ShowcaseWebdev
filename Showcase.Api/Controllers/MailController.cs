@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Showcase.Api.Interfaces;
-using Showcase.Api.Models.Models;
+using Showcase.Api.Models;
 
 namespace Showcase.Api.Controllers;
 

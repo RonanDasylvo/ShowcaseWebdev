@@ -3,7 +3,6 @@ using Microsoft.Extensions.Options;
 using MimeKit;
 using Showcase.Api.Interfaces;
 using Showcase.Api.Models;
-using Showcase.Api.Models.Models;
 
 namespace Showcase.Api.Services;
 
@@ -22,17 +21,18 @@ public class MailService(IOptions<MailSettings> mailSettingsOptions) : IMailServ
             MailboxAddress emailTo = new(data.EmailToName, data.EmailToId);
             emailMessage.To.Add(emailTo);
 
-            emailMessage.Cc.Add(new MailboxAddress("Cc Receiver", "cc@example.com"));
-            emailMessage.Bcc.Add(new MailboxAddress("Bcc Receiver", "bcc@example.com"));
+            // emailMessage.Cc.Add(new MailboxAddress("Cc Receiver", "cc@example.com"));
+            // emailMessage.Bcc.Add(new MailboxAddress("Bcc Receiver", "bcc@example.com"));
 
             emailMessage.Subject = data.EmailSubject;
 
-            BodyBuilder emailBodyBuilder = new BodyBuilder
+            BodyBuilder emailBodyBuilder = new()
             {
                 TextBody = data.EmailBody
             };
 
             emailMessage.Body = emailBodyBuilder.ToMessageBody();
+            
             //this is the SmtpClient from the Mailkit.Net.Smtp namespace, not the System.Net.Mail one
             using SmtpClient mailClient = new();
 
@@ -46,7 +46,7 @@ public class MailService(IOptions<MailSettings> mailSettingsOptions) : IMailServ
         }
         catch (Exception ex)
         {
-            // Exception Details
+            Console.WriteLine(ex);
             return false;
         }
     }

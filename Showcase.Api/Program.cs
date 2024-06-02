@@ -1,9 +1,9 @@
 using Microsoft.OpenApi.Models;
+using Showcase.Api;
 using Showcase.Api.Interfaces;
-using Showcase.Api.Models;
 using Showcase.Api.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -25,10 +25,10 @@ builder.Services.AddSwaggerGen(c =>
         },
     });
 });
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettingsModel"));
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, MailService>();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
