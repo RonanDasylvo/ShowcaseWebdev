@@ -4,17 +4,28 @@ function toggleNav() {
     nav.classList.toggle("open");
 }
 
-function getData(form) {
-    let formData = new FormData(form);
+function getFormData(event) {
+    event.preventDefault();
 
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
-    }
+    // const form = document.getElementById("form");
 
-    console.log(Object.fromEntries(formData));
+    const formData = {
+        "mailAdress": document.getElementById("email").value,
+        "mailsubject": document.getElementById("subject").value,
+        "mailBody": document.getElementById("content").value
+    };
+
+    postData(formData).then();
 }
 
-document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    getData(e.target);
-});
+document.getElementById('form').addEventListener('submit', getFormData);
+
+async function postData(formData) {
+    const response = await fetch("http://localhost:5146/Mail/SendMail", {
+        method: "POST",
+        body: JSON.stringify(formData)
+    });
+    
+    const mailData = await response.json();
+    console.log(mailData);
+}

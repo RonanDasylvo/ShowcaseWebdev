@@ -8,7 +8,7 @@ namespace Showcase.Services;
 
 public class MailService : IMailService
 {
-    public bool SendMail(MailData mailData)
+    public bool SendMail(MailDataModel model)
     {
         try
         {
@@ -19,7 +19,7 @@ public class MailService : IMailService
                 Credentials = new NetworkCredential(MailSettings.UserName, MailSettings.Password),
                 EnableSsl = true
             };
-            client.Send(mailData.EmailFromId, MailSettings.EmailTo, mailData.EmailSubject, mailData.EmailBody);
+            client.Send(model.SenderMail, MailSettings.EmailTo, model.MailSubject, model.MailBody);
             Console.WriteLine("Sent");
 
             return true;

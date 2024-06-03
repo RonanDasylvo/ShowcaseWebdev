@@ -10,5 +10,5 @@ public class MailController(IMailService mailService) : ControllerBase
 {
     [HttpPost]
     [Route("SendMail")]
-    public bool SendMail(MailData mailData) => mailService.SendMail(mailData);
+    public bool SendMail(MailDataModel data) => mailService.SendMail(data);
 }

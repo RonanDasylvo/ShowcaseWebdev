@@ -4,5 +4,5 @@ namespace Showcase.Interfaces;
 
 public interface IMailService
 {
-    bool SendMail(MailData mailData);
+    bool SendMail(MailDataModel data);
 }
