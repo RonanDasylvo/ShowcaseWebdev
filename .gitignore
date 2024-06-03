@@ -485,3 +485,6 @@ $RECYCLE.BIN/
 
 # Tailwind generated css style file
 **/styles.css
+
+# MailSettings with sensitive data
+**/MailSettings.cs

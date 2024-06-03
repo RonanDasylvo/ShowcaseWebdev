@@ -6,5 +6,5 @@ namespace Showcase.Models;
 public class ListModel
 {
     public int Id { get; set; }
-    public List<string>? Content { get; set; }
+    public List<string> Content { get; set; } = [];
 }
