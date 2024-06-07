@@ -20,7 +20,7 @@ html {
 }
 
 .form input, .form textarea {
-    @apply rounded-md mb-5 outline-none bg-gray-50 border-slate-300 border;
+    @apply rounded-md outline-none bg-gray-50 border-slate-300 border;
 }
 
 p.quote-gray {
@@ -53,6 +53,6 @@ p.quote-green {
     }
 
     p {
-        @apply text-base pb-1;
+        @apply text-base;
     }
 }

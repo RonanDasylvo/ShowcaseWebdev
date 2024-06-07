@@ -1,13 +1,8 @@
-using Showcase.Interfaces;
-using Showcase.Services;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddTransient<IMailService, MailService>();
 
 WebApplication app = builder.Build();
 

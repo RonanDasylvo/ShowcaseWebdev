@@ -4,28 +4,50 @@ function toggleNav() {
     nav.classList.toggle("open");
 }
 
-function getFormData(event) {
+const form = document.getElementById('form');
+const valMsg = document.getElementById("val-msg");
+
+form.addEventListener("submit", getFormData);
+
+async function getFormData(event) {
     event.preventDefault();
 
-    // const form = document.getElementById("form");
-
+    valMsg.className = "";
+    valMsg.innerHTML = "Verzoek aan het verwerken...";
+    
+    const captcha = document.getElementById("captcha").value 
+    
     const formData = {
-        "mailAdress": document.getElementById("email").value,
-        "mailsubject": document.getElementById("subject").value,
-        "mailBody": document.getElementById("content").value
+        MailSender: document.getElementById("email").value,
+        MailSubject: document.getElementById("subject").value,
+        MailBody: document.getElementById("content").value,
+        CaptchaValue: captcha,
     };
+    
+    await PostFormData(formData).then();
 
-    postData(formData).then();
+    form.reset();
 }
 
-document.getElementById('form').addEventListener('submit', getFormData);
-
-async function postData(formData) {
-    const response = await fetch("http://localhost:5146/Mail/SendMail", {
-        method: "POST",
+async function PostFormData(formData) {
+    await fetch('/SendMail', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify(formData)
-    });
-    
-    const mailData = await response.json();
-    console.log(mailData);
+    })
+        .then(response => response.json())
+        .then(data => {
+            valMsg.innerHTML = data.message;
+            if (!data.success) {
+                valMsg.classList.add("text-red-400");
+                return;
+            }
+            valMsg.classList.add("text-green-400")
+        })
+        .catch(error => {
+            valMsg.classList.add("text-red-400");
+            valMsg.innerHTML = "Er is iets fout gegaan tijdens het versturen.";
+        });
 }
