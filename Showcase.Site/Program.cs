@@ -1,8 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using Showcase.Data;
+using Showcase.Interfaces;
+using Showcase.Repositories;
+using Showcase.Services;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddDbContext<ShowcaseDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 WebApplication app = builder.Build();
 
