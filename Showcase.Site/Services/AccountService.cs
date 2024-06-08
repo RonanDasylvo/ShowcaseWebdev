@@ -5,11 +5,14 @@ namespace Showcase.Services;
 
 public class AccountService(IAccountRepository accountRepository) : IAccountService
 {
-    public async Task<IEnumerable<UserModel>> GetAll()
-        => await accountRepository.GetAll();
+    public IEnumerable<UserModel> GetAll()
+        => accountRepository.GetAll();
 
-    public async Task<UserModel?> GetById(int id)
-        => await accountRepository.GetById(id);
+    public UserModel? GetById(int id)
+        => accountRepository.GetById(id);
+
+    public UserModel? GetByEmail(string email)
+        => accountRepository.GetByEmail(email);
 
     public void Save(UserModel user)
     {

@@ -4,8 +4,9 @@ using System.Diagnostics;
 
 namespace Showcase.Controllers;
 
-public class HomeController(ILogger<HomeController> logger) : Controller
+public class HomeController : Controller
 {
+    // ILogger<HomeController> logger
     public IActionResult Index()
     {
         return View();

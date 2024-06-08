@@ -4,8 +4,9 @@ namespace Showcase.Interfaces;
 
 public interface IAccountService
 {
-    Task<IEnumerable<UserModel>> GetAll();
-    Task<UserModel?> GetById(int id);
+    IEnumerable<UserModel> GetAll();
+    UserModel? GetById(int id);
+    UserModel? GetByEmail(string email);
     void Save(UserModel user);
     void Remove(UserModel user);
 }

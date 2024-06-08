@@ -7,18 +7,31 @@ namespace Showcase.Repositories;
 
 public class AccountRepository(ShowcaseDbContext db) : IAccountRepository
 {
-    public async Task<IEnumerable<UserModel>> GetAll()
-        => await db.UserModels.ToListAsync();
+    public IEnumerable<UserModel> GetAll()
+        => db.UserModels.ToList();
 
-    public async Task<UserModel?> GetById(int id)
-        => await db.UserModels.SingleOrDefaultAsync(x => x.Id == id);
+    public UserModel? GetById(int id)
+        => db.UserModels.SingleOrDefault(x => x.Id == id);
+
+    public UserModel? GetByEmail(string email)
+        => db.UserModels.SingleOrDefault(x => x.Email == email);
 
     public void Insert(UserModel user)
-        => db.UserModels.Add(user);
+    {
+        db.UserModels.Add(user);
+        db.SaveChanges();
+    }
 
     public void Update(UserModel user)
-        => db.UserModels.Update(user);
-    
+    {
+        db.UserModels.Update(user);
+        db.SaveChanges();
+    }
+
+
     public void Remove(UserModel user)
-        => db.UserModels.Remove(user);
+    {
+        db.UserModels.Remove(user);
+        db.SaveChanges();
+    }
 }

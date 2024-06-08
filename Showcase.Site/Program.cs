@@ -13,6 +13,13 @@ builder.Services.AddDbContext<ShowcaseDbContext>(options =>
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "LoggedInSession";
+    options.Cookie.IsEssential = true;
+    options.IdleTimeout = TimeSpan.FromMinutes(90);
+});
+
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
@@ -38,6 +45,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

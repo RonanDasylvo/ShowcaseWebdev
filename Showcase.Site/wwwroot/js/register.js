@@ -1,8 +1,7 @@
-const contactForm = document.getElementById('contact-form');
-const valMsg = document.getElementById("val-msg");
+const registerForm = document.getElementById('register-form');
 
-if (contactForm !== null) {
-    contactForm.addEventListener("submit", getFormData);
+if (registerForm !== null) {
+    registerForm.addEventListener("submit", getFormData);
 }
 
 async function getFormData(event) {
@@ -11,29 +10,25 @@ async function getFormData(event) {
     valMsg.className = "";
     valMsg.innerHTML = "Verzoek aan het verwerken...";
 
-    const captcha = document.getElementById("captcha").value
-
     const formData = {
-        MailSender: document.getElementById("email").value,
-        MailSubject: document.getElementById("subject").value,
-        MailBody: document.getElementById("content").value,
-        CaptchaValue: captcha,
+        Username: document.getElementById("name").value,
+        Email: document.getElementById("email").value,
+        Password: document.getElementById("password").value
     };
 
-    await PostFormData(formData).then();
-
+    await CreateAccount(formData).then();
     this.reset();
 }
 
-async function PostFormData(formData) {
-    await fetch('/SendMail', {
+async function CreateAccount(formData) {
+    await fetch('/ManageAccount/Register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData)
     })
-        // .then(response => response.json())
+        .then(response => response.json())
         .then(data => {
             valMsg.innerHTML = data.message;
             if (!data.success) {
@@ -44,8 +39,7 @@ async function PostFormData(formData) {
         })
         .catch(error => {
             valMsg.classList.add("text-red-400");
-            valMsg.innerHTML = "Er is iets fout gegaan tijdens het versturen.";
+            valMsg.innerHTML = "Er is iets fout gegaan tijdens registreren van het account.";
             console.log(error);
         });
 }
-
