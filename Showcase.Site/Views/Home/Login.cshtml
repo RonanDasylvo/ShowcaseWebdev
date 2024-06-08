@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="content h-full border-box px-8 flex flex-col items-center">
+
+    <section class="p-12 text-center">
+        <h1>Inloggen</h1>
+        <p>
+            Op deze pagina kan je inloggen in je account. Nog geen account? <a class="text-blue-500 underline" asp-controller="Home" asp-action="Register">Klik dan hier</a>
+        </p>
+    </section>
+
+    <section class="flex flex-col w-4/5 sm:w-2/3 md:max-w-[600px]">
+        <form
+            id="login-form"
+            class="form flex flex-col [&>label]:my-1 [&>textarea]:h-40 [&>textarea]:resize-none"
+            method="post">
+            
+            <label for="email">Email</label>
+            <input id="email" class="h-8 mb-5" name="email" type="email" required>
+
+            <label for="password">Wachtwoord</label>
+            <input id="password" class="h-8 mb-10" name="password" type="password" required>
+            
+            <div class="flex flex-col align-middle items-center gap-8 mb-4">
+                <input id="submit" class="btn bg-green-400 hover:bg-green-500" type="submit" value="Inloggen">
+                <p id="val-msg"></p>
+            </div>
+        </form>
+    </section>
+
+</div>

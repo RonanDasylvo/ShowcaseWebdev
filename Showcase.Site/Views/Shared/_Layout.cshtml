@@ -31,6 +31,9 @@
                     <li>
                         <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                     </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -60,13 +63,19 @@
 
 <footer class="md:ml-56 bg-slate-200">
     <div class="box-border p-4 text-center">
-        &copy; 2024 / 
+        &copy; 2024 /
         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a> /
-        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+        <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a> /
+        <a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
     </div>
 </footer>
-<script src="~/js/site.js" asp-append-version="true"></script>
+
 <script src="~/js/gdpr.js" asp-append-version="true"></script>
+<script src="~/js/login.js" asp-append-version="true"></script>
+<script src="~/js/mail.js" asp-append-version="true"></script>
+<script src="~/js/register.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

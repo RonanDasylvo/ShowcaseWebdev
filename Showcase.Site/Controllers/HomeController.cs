@@ -2,24 +2,33 @@ using Microsoft.AspNetCore.Mvc;
 using Showcase.Models;
 using System.Diagnostics;
 
-namespace Showcase.Controllers
+namespace Showcase.Controllers;
+
+public class HomeController(ILogger<HomeController> logger) : Controller
 {
-    public class HomeController(ILogger<HomeController> logger) : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
+    }
 
-        public IActionResult Contact()
-        {
-            return View();
-        }
+    public IActionResult Contact()
+    {
+        return View();
+    }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
