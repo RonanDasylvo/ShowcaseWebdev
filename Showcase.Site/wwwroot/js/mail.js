@@ -1,7 +1,7 @@
 const contactForm = document.getElementById('contact-form');
 const valMsg = document.getElementById("val-msg");
 
-if (contactForm !== null) {
+if (contactForm != null) {
     contactForm.addEventListener("submit", getFormData);
 }
 
@@ -33,7 +33,7 @@ async function PostFormData(formData) {
         },
         body: JSON.stringify(formData)
     })
-        // .then(response => response.json())
+        .then(response => response.json())
         .then(data => {
             valMsg.innerHTML = data.message;
             if (!data.success) {

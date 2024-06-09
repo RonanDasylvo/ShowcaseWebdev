@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Showcase.Interfaces;
 using Showcase.Models;
 
@@ -14,16 +15,22 @@ public class AccountService(IAccountRepository accountRepository) : IAccountServ
     public UserModel? GetByEmail(string email)
         => accountRepository.GetByEmail(email);
 
-    public void Save(UserModel user)
+    public void Save(UserModel model)
     {
-        if (GetById(user.Id) == null)
+        if (GetById(model.Id) == null)
         {
-            accountRepository.Insert(user);
+            accountRepository.Insert(model);
             return;
         }
-        accountRepository.Update(user);
+        accountRepository.Update(model);
     }
 
-    public void Remove(UserModel user)
-        => accountRepository.Remove(user);
+    public void Create(UserModel model)
+    {
+        if (GetAll().All(x => x != model))
+            accountRepository.Insert(model);
+    }
+
+    public void Remove(UserModel model)
+        => accountRepository.Remove(model);
 }

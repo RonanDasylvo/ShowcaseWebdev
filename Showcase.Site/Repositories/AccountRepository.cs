@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Showcase.Data;
+using Showcase.Contexts;
 using Showcase.Interfaces;
 using Showcase.Models;
 
@@ -16,22 +16,21 @@ public class AccountRepository(ShowcaseDbContext db) : IAccountRepository
     public UserModel? GetByEmail(string email)
         => db.UserModels.SingleOrDefault(x => x.Email == email);
 
-    public void Insert(UserModel user)
+    public void Insert(UserModel model)
     {
-        db.UserModels.Add(user);
+        db.UserModels.Add(model);
         db.SaveChanges();
     }
 
-    public void Update(UserModel user)
+    public void Update(UserModel model)
     {
-        db.UserModels.Update(user);
+        db.UserModels.Update(model);
         db.SaveChanges();
     }
-
-
-    public void Remove(UserModel user)
+    
+    public void Remove(UserModel model)
     {
-        db.UserModels.Remove(user);
+        db.UserModels.Remove(model);
         db.SaveChanges();
     }
 }

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Showcase.Data;
+using Showcase.Contexts;
 using Showcase.Interfaces;
 using Showcase.Repositories;
 using Showcase.Services;
@@ -10,14 +10,17 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ShowcaseDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Add repo's and services
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddSession(options =>
 {
-    options.Cookie.Name = "LoggedInSession";
+    options.Cookie.Name = "LoggedInUser";
+    options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-    options.IdleTimeout = TimeSpan.FromMinutes(90);
+    options.IdleTimeout = TimeSpan.FromMinutes(60);
 });
 
 builder.Services.AddSwaggerGen();

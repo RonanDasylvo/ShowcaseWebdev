@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Showcase.Attributes
+@{
+    UserModel? userSession = Context.Session.GetObjectFromJson<UserModel>("LoggedInUser");
+}
+
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="utf-8"/>
@@ -18,11 +23,15 @@
     </a>
     <nav class="w-full bg-stone-800 z-10 md:w-56 h-dvh fixed -mt-[100dvh] md:mt-0 [&.open]:mt-0 duration-200">
         <div class="text-center md:text-left py-2">
-            <h2 class="flex flex-col items-center my-4">
+            <div class="flex flex-col items-center my-4">
                 <a asp-area="" asp-controller="Home" asp-action="Index">
                     <img class="h-9 w-9" src="/img/svg/house-solid.svg" alt="house-svg">
                 </a>
-            </h2>
+                @if (userSession != null)
+                {
+                    <h3 class="text-white font-light my-2">Welkom @userSession.Username!</h3>
+                }
+            </div>
             <div class="nav-links">
                 <ul class="[&>li]:py-2 [&>li]:px-6">
                     <li>
@@ -32,7 +41,14 @@
                         <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        @if (userSession != null)
+                        {
+                            <a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                        }
+                        else
+                        {
+                            <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        }
                     </li>
                 </ul>
             </div>
@@ -66,14 +82,19 @@
         &copy; 2024 /
         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a> /
         <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a> /
-        <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        @if (userSession != null)
+        {
+            <a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+        }
+        else
+        {
+            <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        }
     </div>
 </footer>
 
 <script src="~/js/gdpr.js" asp-append-version="true"></script>
-<script src="~/js/login.js" asp-append-version="true"></script>
 <script src="~/js/mail.js" asp-append-version="true"></script>
-<script src="~/js/register.js" asp-append-version="true"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 

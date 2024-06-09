@@ -1,3 +1,5 @@
+@model Showcase.Models.RegisterModel
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -7,31 +9,36 @@
     <section class="p-12 text-center">
         <h1>Registreren</h1>
         <p>
-            Op deze pagina kan je je registreren. Al een account? 
+            Op deze pagina kan je je registreren. Al een account?
             <a class="text-blue-500 underline" asp-controller="Account" asp-action="Login">Klik dan hier</a>
         </p>
     </section>
 
     <section class="flex flex-col w-4/5 sm:w-2/3 md:max-w-[600px]">
         <form
-            id="register-form"
             class="form flex flex-col [&>label]:my-1 [&>textarea]:h-40 [&>textarea]:resize-none"
+            asp-action="Register"
             method="post">
 
-            <label for="name">Gebruikersnaam</label>
-            <input id="name" class="h-8 mb-5" name="name" type="text" maxlength="50" required>
+            <label asp-for="Username">Gebruikersnaam</label>
+            <input asp-for="Username" class="h-8 mb-5" name="username" type="text" maxlength="50" required>
+            <span asp-validation-for="Username"></span>
 
-            <label for="email">Email</label>
-            <input id="email" class="h-8 mb-5" name="email" type="email" maxlength="100" required>
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="h-8 mb-5" name="email" type="email" maxlength="100" required>
+            <span asp-validation-for="Email"></span>
 
-            <label for="password">Wachtwoord</label>
-            <input id="password" class="h-8 mb-5" name="password" type="password" maxlength="100" required>
+            <label asp-for="Password">Wachtwoord</label>
+            <input asp-for="Password" class="h-8 mb-5" name="password" type="password" maxlength="100" required>
+            <span asp-validation-for="Password"></span>
 
-            <div class="flex flex-row items-center gap-8 mb-4">
-                <input id="submit" class="self-start btn bg-green-400 hover:bg-green-500" type="submit" value="Verzenden">
-                <p id="val-msg"></p>
-            </div>
+            <button type="submit" class="self-start btn bg-green-400 hover:bg-green-500">Registreren</button>
         </form>
+
+        @if (ViewBag.Error != null)
+        {
+        <p class="text-red-400">@ViewBag.Error</p>
+        }
     </section>
 
 

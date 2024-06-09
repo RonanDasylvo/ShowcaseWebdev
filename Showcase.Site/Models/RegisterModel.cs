@@ -1,13 +1,9 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Showcase.Models;
 
-[Table("Users")]
-public class UserModel
+public class RegisterModel
 {
-    public int Id { get; set; }
-    
     [MaxLength(50)]
     public string Username { get; set; } = string.Empty;
     
@@ -16,6 +12,4 @@ public class UserModel
     
     [MaxLength(100)]
     public string Password { get; set; } = string.Empty;
-    
-    public int Role { get; set; }
 }

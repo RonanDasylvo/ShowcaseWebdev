@@ -7,7 +7,7 @@ public interface IAccountRepository
     IEnumerable<UserModel> GetAll();
     UserModel? GetById(int id);
     UserModel? GetByEmail(string email);
-    void Insert(UserModel user);
-    void Update(UserModel user);
-    void Remove(UserModel user);
+    void Insert(UserModel model);
+    void Update(UserModel model);
+    void Remove(UserModel model);
 }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Showcase.Data;
+using Showcase.Contexts;
 
 #nullable disable
 
@@ -28,7 +28,7 @@ namespace Showcase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Lists");
+                    b.ToTable("Lists", (string)null);
                 });
 
             modelBuilder.Entity("Showcase.Models.UserModel", b =>
@@ -54,7 +54,7 @@ namespace Showcase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 #pragma warning restore 612, 618
         }
