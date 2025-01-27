@@ -3,6 +3,7 @@ using Showcase.Contexts;
 using Showcase.Interfaces;
 using Showcase.Repositories;
 using Showcase.Services;
+using Showcase.Hubs;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddSignalR();
 
 WebApplication app = builder.Build();
 
@@ -53,5 +55,6 @@ app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapHub<ChatHub>("/chathub");
 
 app.Run();

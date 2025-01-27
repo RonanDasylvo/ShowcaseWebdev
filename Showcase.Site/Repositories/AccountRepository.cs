@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Showcase.Contexts;
 using Showcase.Interfaces;
 using Showcase.Models;
@@ -8,7 +7,7 @@ namespace Showcase.Repositories;
 public class AccountRepository(ShowcaseDbContext db) : IAccountRepository
 {
     public IEnumerable<UserModel> GetAll()
-        => db.UserModels.ToList();
+        => db.UserModels;
 
     public UserModel? GetById(int id)
         => db.UserModels.SingleOrDefault(x => x.Id == id);

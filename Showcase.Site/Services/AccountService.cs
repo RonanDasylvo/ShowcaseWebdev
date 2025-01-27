@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Showcase.Interfaces;
 using Showcase.Models;
 
